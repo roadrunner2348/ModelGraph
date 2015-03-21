@@ -1,0 +1,8 @@
+[Core]
+Name = ModelGraph
+Module = modelgraph
+
+[Documentation]
+Author = Justin Wolf
+Version = 0.1
+Descripton = Displays a breakdown of the models across your business units and machine groups.

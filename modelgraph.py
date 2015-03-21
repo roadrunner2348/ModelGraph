@@ -28,13 +28,21 @@ class ModelGraph(IPlugin):
 		if machines:
 			model_info = machines.values('machine_model').annotate(count=Count('machine_model')).order_by()
 		else:
-			munki_info[]
+			model_info[]
 
 
 		c = Context({
 			'title': 'Model Breakdown',
-			'data': munki_info,
+			'data': model_info,
 			'page': page,
 			'theid': theid
 			})
 		return t.render(c), 3
+
+	def filter_machines(self, machines, data):
+        # You will be passed a QuerySet of machines, you then need to perform some filtering based on the 'data' part of the url from the show_widget output. Just return your filtered list of machines and the page title.
+        
+        machines = machines.filter(machine_model=data)
+        
+        title = '+data+'
+        return machines, title
